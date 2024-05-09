@@ -1,88 +1,21 @@
-<!-- <div class="container" *ngIf="users">
-    <h2 class="text-center">All Employees</h2>
-    <button class="update-button" routerLink="/user">Add Employee</button>
-    <table class="user-table">
-        <thead>
-            <tr>
-                <th>Emp Id</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Email</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.emailId}}</td>
-                <td>
-                    <button class="update-button" routerLink="/user/{{user.id}}">Update</button>
-                    <button class="delete-button" (click)="deleteUser(user.id)">Delete</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <ng-template #emptyState>
-    </ng-template>
-</div> -->
-
-
-<!-- <div class="container" *ngIf="users">
-    <h2 class="text-center">Employee Dashboard</h2>
-    <button class="btn btn-primary mb-3" routerLink="/user">Add Employee</button>
-    <table class="table table-striped">
-        <thead class="thead-dark">
-            <tr>
-                <th class="font-weight-bold h4">Emp Id</th>
-                <th class="font-weight-bold h4">First Name</th>
-                <th class="font-weight-bold h4">Last Name</th>
-                <th class="font-weight-bold h4">Email</th>
-                <th class="font-weight-bold h4">Actions</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{user.id}}</td>
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.emailId}}</td>
-                <td>
-                    <button class="btn btn-primary mr-2" routerLink="/user/{{user.id}}">Update</button>
-                    <button class="btn btn-danger ml-10" (click)="deleteUser(user.id)">Delete</button>
-                </td>
-            </tr>
-
-        </tbody>
-    </table>
-    <div *ngIf="users.length === 0" class="text-center">
-        No employees found.
-    </div>
-</div> -->
-
 
 <div class="container" *ngIf="users">
     <h2 class="text-center">Employee Dashboard</h2>
-    <button class="btn btn-primary mb-3" routerLink="/user">Add Employee</button>
+    
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchTerm">
+        </div>
+        <button class="btn btn-primary" routerLink="/user">Add Employee</button>
+    </div>
+
     <table class="table table-striped">
         <thead class="thead-dark">
             <tr>
-                <!-- <th class="font-weight-bold h4">Emp Id</th>
-                <th class="font-weight-bold h4">First Name</th>
-                <th class="font-weight-bold h4">Last Name</th>
-                <th class="font-weight-bold h4">Email</th> -->
-                <!-- <th class="font-weight-bold h4" (click)="sortUsers('id')">Emp Id</th>
-                <th class="font-weight-bold h4" (click)="sortUsers('firstName')">First Name</th>
-                <th class="font-weight-bold h4" (click)="sortUsers('lastName')">Last Name</th>
-                <th class="font-weight-bold h4" (click)="sortUsers('emailId')">Email</th> -->
-
                 <th class="font-weight-bold h4" (click)="sortUsers('id')" [ngClass]="{'hoverable': sortKey !== 'id'}">Emp Id</th>
                 <th class="font-weight-bold h4" (click)="sortUsers('firstName')" [ngClass]="{'hoverable': sortKey !== 'firstName'}">First Name</th>
                 <th class="font-weight-bold h4" (click)="sortUsers('lastName')" [ngClass]="{'hoverable': sortKey !== 'lastName'}">Last Name</th>
                 <th class="font-weight-bold h4" (click)="sortUsers('emailId')" [ngClass]="{'hoverable': sortKey !== 'emailId'}">Email</th>
-
                 <th class="font-weight-bold h4">Actions</th>
             </tr>
         </thead>
