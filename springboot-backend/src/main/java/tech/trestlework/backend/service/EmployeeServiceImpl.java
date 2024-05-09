@@ -1,6 +1,8 @@
 package tech.trestlework.backend.service;
 
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import tech.trestlework.backend.dto.EmployeeDto;
 import tech.trestlework.backend.entity.Employee;
 import tech.trestlework.backend.exception.ResourceNotFoundException;
@@ -66,6 +68,22 @@ public class EmployeeServiceImpl implements EmployeeService {
         );
         employeeRepository.deleteById(employeeId);
     }
+
+//    @Override
+//    public Page<EmployeeDto> getAllEmployees(Pageable pageable) {
+//        Page<Employee> employeesPage = employeeRepository.findAll(pageable);
+//        return employeesPage.map(EmployeeMapper::mapToEmployeeDto);
+//    }
+
+//    @Override
+//    public List<EmployeeDto> findEmployeeWithSorting(String field) {
+//        return List.of();
+//    }
+//
+//    @Override
+//    public List<EmployeeDto> findEmployeeWithPagination(int offset, int pageSize) {
+//        return List.of();
+//    }
 
 
 }

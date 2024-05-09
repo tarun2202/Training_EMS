@@ -1,5 +1,9 @@
 package tech.trestlework.backend.controller;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import tech.trestlework.backend.dto.EmployeeDto;
 import tech.trestlework.backend.service.EmployeeService;
 import lombok.AllArgsConstructor;
@@ -52,4 +56,11 @@ public class EmployeeController {
         employeeService.deleteEmployeeById(employeeId);
         return ResponseEntity.ok("Employee deleted successfully!");
     }
+
+//    @GetMapping
+//    public ResponseEntity<Page<EmployeeDto>> getAllEmployees(
+//            @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable) {
+//        Page<EmployeeDto> employees = employeeService.getAllEmployees(pageable);
+//        return ResponseEntity.ok().body(employees);
+//    }
 }
